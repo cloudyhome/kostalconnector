@@ -1,25 +1,0 @@
-
-qsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ô©ûÀ8µÇÿ‚-
-Ysquid:S2209Ë"5Change this instance-reference to a static reference.(½Šì¤ùÿÿÿÿ8ˆîƒ‚-
-‡squid:S1488½"cImmediately return this expression instead of assigning it to the temporary variable "returnValue".(ÒÌâ–øÿÿÿÿ8‡ßÕÿ-
-¯%squid:RedundantThrowsDeclarationCheck!"xRemove the declaration of thrown exception 'java.net.UnknownHostException' which is a subclass of 'java.io.IOException'.(¿ÁœF8‡ßÕÿ-
-¥%squid:RedundantThrowsDeclarationCheckC"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(Ûœ …8‡ßÕÿ-
-±%squid:RedundantThrowsDeclarationCheckû"sRemove the declaration of thrown exception 'java.net.SocketException' which is a subclass of 'java.io.IOException'.(åñöòüÿÿÿÿ8ÔÏÊ€‚-
-Ysquid:S2209È"5Change this instance-reference to a static reference.(õ²—„ÿÿÿÿÿ8×õíƒ‚-
-‡squid:S1488é"cImmediately return this expression instead of assigning it to the temporary variable "returnValue".(ÒÌâ–øÿÿÿÿ8‡ßÕÿ-
-‡squid:S1488Ÿ"cImmediately return this expression instead of assigning it to the temporary variable "returnValue".(ÒÌâ–øÿÿÿÿ8‡ßÕÿ-
-Tsquid:S2209Ê"5Change this instance-reference to a static reference.(ö§ô«8ˆîƒ‚-
-X"squid:SwitchLastCaseIsDefaultCheck·""Add a default case to this switch.(… À°8ÔÁ©ƒ‚-
-¶%squid:RedundantThrowsDeclarationCheckû"xRemove the declaration of thrown exception 'java.net.UnknownHostException' which is a subclass of 'java.io.IOException'.(åñöòüÿÿÿÿ8ÔÏÊ€‚-
-Tsquid:S2209É"5Change this instance-reference to a static reference.(ç¦Ö«8×õíƒ‚-
-asquid:S1854©"BRemove this useless assignment to local variable "registerResult".(œÈÒ÷8ÔÏÊ€‚-
-ª%squid:RedundantThrowsDeclarationCheckx"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(Ä Øùÿÿÿÿ8‡ßÕÿ-
-[squid:S2589—"7Remove this expression which always evaluates to "true"(™šÎîùÿÿÿÿ8ë°ƒ‚-
-asquid:S1854…"BRemove this useless assignment to local variable "responseLength".(ÂÙì°8¨±Õ€‚-
-~squid:S1192/"[Define a constant instead of duplicating this literal "Input Array length invalid" 4 times.(…¼Íùÿÿÿÿ8×¤¤€‚-
-‡squid:S1488–"cImmediately return this expression instead of assigning it to the temporary variable "returnValue".(ÒÌâ–øÿÿÿÿ8‡ßÕÿ-
-Rsquid:S1481…"3Remove this unused "responseLength" local variable.(ÂÙì°8Ÿûæ‚‚-
-ª%squid:RedundantThrowsDeclarationCheck-"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(»Õ—™ıÿÿÿÿ8‡ßÕÿ-
-¬%squid:RedundantThrowsDeclarationCheckÑ"sRemove the declaration of thrown exception 'java.net.SocketException' which is a subclass of 'java.io.IOException'.(ğÑ¾ó8ÔÏÊ€‚-
-¥%squid:RedundantThrowsDeclarationCheck^"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(èÄ‚ƒ8‡ßÕÿ-
-vsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ƒöíôùÿÿÿÿ8µÇÿ‚-
