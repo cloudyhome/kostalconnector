@@ -1,16 +1,21 @@
 package de.de.kostalconnector;
 
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.io.IOException;
 
 
 public class KostalConnector {
 
-    private ModbusClient modbusClient = new ModbusClient("scb.localdomain", 1502);
+    private ModbusClient modbusClient;
 
 
 
     public static void main(String[] args) {
-        KostalConnector kostalConnector = new KostalConnector();
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        KostalConnector kostalConnector = applicationContext.getBean("kostalConnector", KostalConnector.class);
         try {
             kostalConnector.initModbusClient();
             System.out.println("Consumption from grid: " + kostalConnector.getCurrentConsumptionFromGrid());
@@ -23,32 +28,9 @@ public class KostalConnector {
             System.out.println("Power Phase 1: " + kostalConnector.getPowerPhase1());
             System.out.println("Power Phase 2: " + kostalConnector.getPowerPhase2());
             System.out.println("Power Phase 3: " + kostalConnector.getPowerPhase3());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ModbusException e) {
+        } catch (IOException | ModbusException e) {
             e.printStackTrace();
         }
-
-//        try {
-//
-//
-//            System.out.println("Connected " + modbusClient.isConnected());
-//            System.out.println("Ip " + modbusClient.getipAddress());
-//            System.out.println("Port " + modbusClient.getPort());
-//            System.out.println("UnitIdentifier " + modbusClient.getUnitIdentifier());
-//            System.out.println("UDPFlag " + modbusClient.getUDPFlag());
-//            System.out.println("SerialFlag " + modbusClient.getSerialFlag());
-//            System.out.println("Connect timeout " + modbusClient.getConnectionTimeout());
-//
-////            for(int x : resp) {
-////                System.out.println(x);
-////            }
-//
-//
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 
     public float getCurrentConsumptionFromPV() throws IOException, ModbusException {
@@ -85,13 +67,16 @@ public class KostalConnector {
 
     private float receiveFloat(ModbusAddress modbusAddress) throws IOException, ModbusException {
         final int[] resp = modbusClient.readHoldingRegisters(modbusAddress.getAddress(), 2);
-            return ModbusClient.convertRegistersToFloat(resp);
+            return ModbusClient.convertToFloat(resp);
 
     }
 
     private void initModbusClient() throws IOException {
-        modbusClient.setConnectionTimeout(2000);
-        modbusClient.setUnitIdentifier((byte)71);
         modbusClient.connect();
+    }
+
+    @Required
+    public void setModbusClient(ModbusClient modbusClient) {
+        this.modbusClient = modbusClient;
     }
 }
