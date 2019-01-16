@@ -17,8 +17,7 @@ public class ModbusClient {
     private static final byte[] length = {0, 6};
 
     private static final byte FUNCTION_CODE_READ_HOLDING_REGISTERS = 0x03;
-    private static  final byte FUNCTION_CODE_WRITE_SINGLE_REGISTER = 0x06;
-
+    private static final byte FUNCTION_CODE_WRITE_SINGLE_REGISTER = 0x06;
 
 
     public ModbusClient(String hostName, int port) {
@@ -66,7 +65,7 @@ public class ModbusClient {
      * @param quantity        number of registers which should be read
      * @return The values held by the queried registers
      * @throws ModbusException If the modbus server responds with an exception response
-     * @throws IOException In case of any I/O error
+     * @throws IOException     In case of any I/O error
      */
     public int[] readHoldingRegisters(int startingAddress, int quantity) throws ModbusException,
             IOException {
@@ -75,15 +74,15 @@ public class ModbusClient {
             throw new IllegalArgumentException("Invalid start address or length");
 
         byte[] sendData = createOutput(FUNCTION_CODE_READ_HOLDING_REGISTERS, toByteArray(startingAddress), toByteArray(quantity));
-byte[] receiveData = sendAndReceive(sendData);
+        byte[] receiveData = sendAndReceive(sendData);
         if (receiveData[7] == 0x83) {
             handleExceptionResponse(receiveData[8]);
         }
         int[] response = new int[quantity];
         for (int i = 0; i < quantity; i++) {
             byte[] bytes = new byte[2];
-            bytes[0] = sendData[9 + i * 2];
-            bytes[1] = sendData[9 + i * 2 + 1];
+            bytes[0] = receiveData[9 + i * 2];
+            bytes[1] = receiveData[9 + i * 2 + 1];
             ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
 
             response[i] = byteBuffer.getShort();
