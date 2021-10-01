@@ -8,7 +8,7 @@ This is ongoing.
 Currently, there is a main method in the class KostalConnector.java
 
 There are several methods provided to read and convert data.
-There is a [specification](https://www.kostal-solar-electric.com%2Fde-de%2Fprodukte%2Fsolar-wechselrichter%2F-%2Fmedia%2Fdocument-library-folder---kse%2F2020%2F12%2F15%2F13%2F38%2Fba_kostal-interface-description-modbus-tcp_sunspec_hybrid.pdf) which specifies the Modbus interface including a list of readable registers as well as return values and units.
+There is a [specification](https://www.kostal-solar-electric.com/de-de/produkte/solar-wechselrichter/-/media/document-library-folder---kse/2020/12/15/13/38/ba_kostal-interface-description-modbus-tcp_sunspec_hybrid.pdf) which specifies the Modbus interface including a list of readable registers as well as return values and units.
 
 The base functionality for writing into registers is also implemented although it is not tested.
 
